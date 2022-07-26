@@ -1,4 +1,8 @@
 let numberCards;
+let firstCard;
+let secondCard;
+let correctCards = 0;
+let numberMoves = 0;
 const imgs = ["images/bobrossparrot.gif","images/bobrossparrot.gif",
             "images/explodyparrot.gif","images/explodyparrot.gif",
             "images/fiestaparrot.gif","images/fiestaparrot.gif",
@@ -24,7 +28,7 @@ function game() {
     for (let i = 0; i < numberCards; i++) {
         const list = document.querySelector(".container");
         list.innerHTML += `
-                <div class="card" onclick="turnCard(this)">
+                <div class="card" onClick="turnCard(this)">
                     <div class="front-face face">
                         <img class="imageParrot" src="images/front.png">
                     </div>
@@ -37,7 +41,42 @@ function game() {
 }
 
 function turnCard(cardClicked) {
-    cardClicked.classList.toggle("turn");
+        if (cardClicked.classList.contains("turn") || secondCard !== undefined) {
+            return;
+        }
+        numberMoves ++;
+        cardClicked.classList.add("turn");
+        if (firstCard === undefined) {
+            firstCard = cardClicked;
+        } else {
+            secondCard = cardClicked;
+            if (firstCard.innerHTML === secondCard.innerHTML) {
+                correctCards += 2;
+                checkGameOver();
+                reseteCards();
+            } else {
+                setTimeout(turnCardsOver,1000);
+            }
+        }
+        
+    
+}
+
+function turnCardsOver() {
+    firstCard.classList.remove("turn");
+    secondCard.classList.remove("turn");
+    reseteCards();
+}
+
+function reseteCards() {
+    firstCard = undefined;
+    secondCard = undefined;
+}
+
+function checkGameOver() {
+    if (correctCards === numberCards) {
+        alert(`Você ganhou em ${numberMoves} jogadas!`);
+    }
 }
 
 game(); 
