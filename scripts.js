@@ -24,7 +24,7 @@ function game() {
     for (let i = 0; i < numberCards; i++) {
         const list = document.querySelector(".container");
         list.innerHTML += `
-                <div class="card">
+                <div class="card" onclick="turnCard(this)">
                     <div class="front-face face">
                         <img class="imageParrot" src="images/front.png">
                     </div>
@@ -34,6 +34,10 @@ function game() {
                 </div>
         `
     }
+}
+
+function turnCard(cardClicked) {
+    cardClicked.classList.toggle("turn");
 }
 
 game(); 

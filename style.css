@@ -59,10 +59,10 @@ h1 {
 .back-face {
     transform: rotateY(180deg);
 }
-.card:active .back-face {
+.turn .back-face {
     transform: rotateY(0deg);
 }
-.card:active .front-face {
+.turn .front-face {
     transform: rotateY(-180deg);
 }
 .imageAnimations {
