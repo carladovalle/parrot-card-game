@@ -3,6 +3,7 @@ let firstCard;
 let secondCard;
 let correctCards = 0;
 let numberMoves = 0;
+let timer = 0;
 const imgs = ["images/bobrossparrot.gif","images/bobrossparrot.gif",
             "images/explodyparrot.gif","images/explodyparrot.gif",
             "images/fiestaparrot.gif","images/fiestaparrot.gif",
@@ -78,5 +79,10 @@ function checkGameOver() {
         alert(`Você ganhou em ${numberMoves} jogadas!`);
     }
 }
+
+setInterval (function() {
+    timer++;
+    document.querySelector(".watch").innerHTML = timer;
+}, 1000)
 
 game(); 

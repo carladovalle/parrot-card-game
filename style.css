@@ -11,6 +11,12 @@ body {
     align-items: center;
     font-family: 'Roboto', sans-serif;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
 h1 {
     color: #75B79E;
     font-size: 56px;
@@ -68,4 +74,16 @@ h1 {
 .imageAnimations {
     width: 80px;
     height: 80px;
+}
+.watch {
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    color: #75B79E;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
